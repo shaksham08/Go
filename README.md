@@ -93,4 +93,62 @@ Now some of the questions that may come in our mind after seeing the program are
     - This is the same pattern used in every go file 
 
 
+# Our First Project - Deck Of Playing Cards
 
+Here in this program we simulate the deck of playing cards
+Using this we will be learning the basics of this language
+
+**Features**:- 
+
+1. newDeck -> create a list of playing cards essentially an array of strings
+2. print -> log out the contents of a deck of cards
+3. shuffle -> shuffle all the cards in a deck
+4. deal -> create a hand of cards
+5. saveToFile -> save list of cards to a file in local machine
+6. newDeckFromFile -> load a list of cards from the local machine 
+
+Create a new project directory
+
+## Declaring a variable 
+
+Go is a static typed language
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var card string = "Ace of Spades"
+	fmt.Println(card)
+}
+```
+
+- `var` tells that its variable 
+- `card` tells the name of the variable
+- `string` tells that only string will be stored in this variable
+
+    ## Basic Data Types in GO
+
+    1. bool
+    2. string
+    3. int
+    4. float64
+
+we can also use `card:= "Ace of Cards"` here the compiler get to know about the type of variable being stored
+
+This syntax is used only while first initializing
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	//var card string = "Ace of Spades"
+	card := "Ace of spades"
+	fmt.Println(card)
+}
+```
+
+Note :-  Variables can be initialized outside of a function, but cannot be assigned a variable.
