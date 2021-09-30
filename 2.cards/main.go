@@ -3,7 +3,16 @@ package main
 import "fmt"
 
 func main() {
-	//var card string = "Ace of Spades"
-	card := "Ace of spades"
-	fmt.Println(card)
+
+	//slice
+	cards := deck{"Ace of diamonds", newCard()}
+	cards = append(cards, "Six of Spades")
+
+	cards.print()
+
+	fmt.Println(cards)
+}
+
+func newCard() string {
+	return "Five of Diamonds"
 }

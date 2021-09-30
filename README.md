@@ -152,3 +152,249 @@ func main() {
 ```
 
 Note :-  Variables can be initialized outside of a function, but cannot be assigned a variable.
+
+
+## Functions and return Types
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	//var card string = "Ace of Spades"
+	card := newCard()
+	fmt.Println(card)
+}
+
+func newCard() string {
+	return "Five of Diamonds"
+}
+
+```
+
+Here  `newCard() string` tells that it will return string type of data
+
+This return type can be anything with whatever we are returning
+
+Note:- **Files in the same package can freely call functions defined in other files.**
+
+- main.go
+
+```go
+package main
+ 
+func main() {
+    printState()
+}
+```
+- state.go
+
+```go
+package main
+ 
+import "fmt"
+ 
+func printState() {
+    fmt.Println("California")
+}
+```
+
+Running both the files using `go run main.go state.go` will perfectly run
+
+if we run only main.go then it would give error as `undefined: printState`
+
+
+## Array and Slice
+
+
+Now this `newCard` function will return more than one card so we need array
+
+Array :- Fixed length of things
+SLice :- An Array that can grow or shring
+
+
+These both should be defined with some data type so that we can store same type of data in this.
+
+slice
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	//slice
+	card := []string{"Ace of diamonds", newCard()}
+	fmt.Println(card)
+}
+
+func newCard() string {
+	return "Five of Diamonds"
+}
+```
+
+Now we want to insert something in the slice so we use append
+
+```go
+
+	cards = append(cards, "Six of Spades")
+```
+Here append just returns new slice which
+
+
+Now to iterate and print the cards we use
+
+```go
+//iterating over the slice to print elements of it
+	for i, card := range cards {
+		fmt.Println(i, card)
+	}
+```
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	//slice
+	cards := []string{"Ace of diamonds", newCard()}
+	cards = append(cards, "Six of Spades")
+
+	//iterating over the slice to print elements of it
+	for i, card := range cards {
+		fmt.Println(i, card)
+	}
+	fmt.Println(cards)
+}
+
+func newCard() string {
+	return "Five of Diamonds"
+}
+```
+
+here for iterating we are using for 
+
+index = index of this element in the array
+
+card = current card
+
+range cards = Take the slice of cards and loop over it
+ 
+we are using `:=` because everytime we are iterating we are getting new variables of i and card and we know this syntax is only used when we first initialize the variable in go
+
+
+Note:- This will not work below code
+
+```go
+for index, card := range cards {
+		fmt.Println(card)
+	}
+```
+
+here we will get error as `index declared but not used`
+
+## Object oriented approach in GO
+
+Note:- Go is not an OO language
+Here there is no idea of classes
+
+![OOApproach](./images/ooapproach.png)
+
+![OOAPROACH2](./images/ooapproach2.png)
+
+![folderstructure](./images/folderstucture.png)
+
+Now we want to create a deck type 
+
+deck.go
+```go
+package main
+
+// create a new type of deck
+//which is a slice of string
+type deck []string
+
+//this says it is equal to strings
+```
+
+main.go
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	//slice
+	cards := deck{"Ace of diamonds", newCard()}
+	cards = append(cards, "Six of Spades")
+
+	//iterating over the slice to print elements of it
+	for i, card := range cards {
+		fmt.Println(i, card)
+	}
+
+	fmt.Println(cards)
+}
+
+func newCard() string {
+	return "Five of Diamonds"
+}
+
+```
+
+
+Now we add our own reciever function
+
+```go
+package main
+
+import "fmt"
+
+// create a new type of deck
+//which is a slice of string
+type deck []string
+
+//this says it is equal to strings
+
+func (d deck) print() {
+	for i, card := range d {
+		fmt.Println(i, card)
+	}
+}
+```
+
+main.go
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	//slice
+	cards := deck{"Ace of diamonds", newCard()}
+	cards = append(cards, "Six of Spades")
+
+	cards.print()
+
+	fmt.Println(cards)
+}
+
+func newCard() string {
+	return "Five of Diamonds"
+}
+```
+
+`func (d deck) print()` - this is a reciever functions which tells any veriable of type deck can access to the print method
+
+Here d is the actual copy of the deck we are working with is available in the function as a variable called 'd'
+
+deck -> every variable of type deck can call this function on itself
+
+![recieverfunction](images/recieverfunction.png)

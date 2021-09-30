@@ -1,0 +1,15 @@
+package main
+
+import "fmt"
+
+// create a new type of deck
+//which is a slice of string
+type deck []string
+
+//this says it is equal to strings
+
+func (d deck) print() {
+	for i, card := range d {
+		fmt.Println(i, card)
+	}
+}
