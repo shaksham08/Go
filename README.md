@@ -398,3 +398,6 @@ Here d is the actual copy of the deck we are working with is available in the fu
 deck -> every variable of type deck can call this function on itself
 
 ![recieverfunction](images/recieverfunction.png)
+
+
+- By shaksham
