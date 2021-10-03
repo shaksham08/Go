@@ -399,6 +399,10 @@ deck -> every variable of type deck can call this function on itself
 
 ![recieverfunction](images/recieverfunction.png)
 
+-
 
+
+
+- DO give starts
 - By shaksham
 - 2021
