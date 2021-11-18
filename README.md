@@ -11,8 +11,7 @@ Hope this makes go language easy to learn.  😃😃
 
 1. VSCODE
 2. GO official vscode extension
-3. A windows 10 OS😁😁
-
+3. A win 11 OS😁😁
 
 # Basics
 
@@ -30,7 +29,9 @@ func main() {
 }
 ```
 
-Make sure to use double quotes and not single quotes
+Make sure to use double quotes and not single quotes.
+
+Single quotes are used for single characters, called **runes**
 
 Now some of the questions that may come in our mind after seeing the program are:-
 
@@ -65,7 +66,7 @@ Now some of the questions that may come in our mind after seeing the program are
     - creating final binary using build works only for `executable` type package
     - So to know if we are making executable package we need to specify `main` as package name
     - If we use any other package name other than main and then run ` go build filename` then it wont spit out the executable file or the binary
-    - Everytime we make an executable package it should have a **functioon**(func) called **`main`**
+    - Everytime we make an executable package it should have a **function**(func) called **`main`**
 
 
 3. **What does `import "fmt"` means?**
@@ -137,7 +138,7 @@ func main() {
 
 we can also use `card:= "Ace of Cards"` here the compiler get to know about the type of variable being stored
 
-This syntax is used only while first initializing
+This syntax with `:` is used only while first initializing
 
 ```go
 package main
@@ -151,7 +152,36 @@ func main() {
 }
 ```
 
-Note :-  Variables can be initialized outside of a function, but cannot be assigned a variable.
+Note :-  We can initialize a variable outside of a function, we just can't assign a value to it.
+
+```go
+package main
+ 
+import "fmt"
+ 
+var deckSize int
+ 
+func main() {
+  deckSize = 50
+  fmt.Println(deckSize)
+}
+```
+
+```go
+package main
+ 
+import "fmt"
+ 
+var deckSize int
+deckSize = 101
+ 
+func main() {
+  deckSize = 50
+  fmt.Println(deckSize)
+}
+```
+
+This above program wont work
 
 
 ## Functions and return Types
@@ -211,7 +241,7 @@ if we run only main.go then it would give error as `undefined: printState`
 Now this `newCard` function will return more than one card so we need array
 
 Array :- Fixed length of things
-SLice :- An Array that can grow or shring
+Slice :- An Array that can grow or shrink
 
 
 These both should be defined with some data type so that we can store same type of data in this.
@@ -399,10 +429,3 @@ deck -> every variable of type deck can call this function on itself
 
 ![recieverfunction](images/recieverfunction.png)
 
--
-
-
-
-- DO give starts
-- By shaksham
-- 2021
