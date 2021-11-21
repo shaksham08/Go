@@ -775,3 +775,100 @@ func (p person) print() {
 }
 
 ```
+
+## Map in Go
+
+In go a map is just a key value pair
+
+- All key or value should be of same type
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	colors := map[string]string{
+		"red":   "#ff0000",
+		"green": "#00ff00",
+	}
+
+	fmt.Println(colors)
+}
+```
+
+Another way
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	// colors := map[string]string{
+	// 	"red":   "#ff0000",
+	// 	"green": "#00ff00",
+	// }
+
+	var colors map[string]string
+
+	fmt.Println(colors)
+}
+```
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	// colors := map[string]string{
+	// 	"red":   "#ff0000",
+	// 	"green": "#00ff00",
+	// }
+
+	// var colors map[string]string
+
+	colors := make(map[string]string)
+
+	colors["white"] = "#ffffff"
+
+	delete(colors,"white")
+
+	fmt.Println(colors)
+}
+
+```
+
+Iterating over Maps
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	colors := map[string]string{
+		"red":   "#ff0000",
+		"green": "#00ff00",
+		"white": "#ffffff",
+	}
+
+	// var colors map[string]string
+
+	// colors := make(map[string]string)
+
+	// colors["white"] = "#ffffff"
+
+	// delete(colors, "white")
+
+	fmt.Println(colors)
+	printMap(colors)
+}
+
+func printMap(c map[string]string) {
+	for color, hex := range c {
+		fmt.Println("Hex code for ", color, " is ", hex)
+	}
+}
+```
