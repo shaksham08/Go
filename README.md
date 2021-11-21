@@ -461,8 +461,8 @@ Here _ means we dont need to use these variables anywhere
 
 ## Slice Range Index
 
-	`fruits[startIndexIncluding : upToNotIncluding]`
-	`fruits[0:2]`
+	*fruits[startIndexIncluding : upToNotIncluding]*
+	*fruits[0:2]*
 
 
 
