@@ -267,12 +267,13 @@ func newCard() string {
 
 Now we want to insert something in the slice so we use append
 
+Every element in slice must be of same type
+
 ```go
 
 	cards = append(cards, "Six of Spades")
 ```
-Here append just returns new slice which
-
+Here append just returns new slice which 
 
 Now to iterate and print the cards we use
 
@@ -336,6 +337,8 @@ Here there is no idea of classes
 
 ![OOAPROACH2](./images/ooapproach2.png)
 
+![OOAPROACH3](./images/ooapproach3.png)
+
 ![folderstructure](./images/folderstucture.png)
 
 Now we want to create a deck type 
@@ -391,11 +394,13 @@ type deck []string
 
 //this says it is equal to strings
 
+//here inside func we are putting reciver
 func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)
 	}
 }
+
 ```
 
 main.go
@@ -428,4 +433,39 @@ Here d is the actual copy of the deck we are working with is available in the fu
 deck -> every variable of type deck can call this function on itself
 
 ![recieverfunction](images/recieverfunction.png)
+
+
+Note:- In Go we dont use `this` of `self`
+
+Now we add a new function to create a new Deck
+
+```go
+// we dont need revciver here as still we dont have any deck
+func newDeck() deck {
+	cards := deck{}
+
+	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
+	cardValues := []string{"Ace", "Two", "Three", "Four"}
+
+	for _, suit := range cardSuits {
+		for _, value := range cardValues {
+			cards = append(cards, suit+" of "+value)
+		}
+	} 
+
+	return cards
+}
+```
+
+Here _ means we dont need to use these variables anywhere
+
+## Slice Range Index
+
+	`fruits[startIndexIncluding : upToNotIncluding]`
+	`fruits[0:2]`
+
+
+
+
+
 
