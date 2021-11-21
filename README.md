@@ -465,8 +465,24 @@ Here _ means we dont need to use these variables anywhere
 
 *fruits[0:2]*
 
+## Return multiple values from functions
+
+```go
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
+}
+```
 
 
+## GO testing
 
+Go testing is not mocha,jasmine or selenium etc
 
+to make a test,create a file ending with _test.go
+
+`deck_test.go`
+
+to run all tests in a package , run the command 
+
+`go test`
 
