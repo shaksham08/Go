@@ -872,3 +872,53 @@ func printMap(c map[string]string) {
 	}
 }
 ```
+
+## Interfaces
+
+We know that every value has a type and every function has d every function has to be specify the type of its argument
+
+so it means that every function we ever write has to be written to accommodate different types even if the logic in it it identical??
+
+```go
+package main
+
+import "fmt"
+
+type bot interface {
+	getGreeting() string
+}
+
+type englishBot struct{}
+type spanishBot struct{}
+
+func main() {
+
+	eb := englishBot{}
+	sb := spanishBot{}
+
+	printGreeting(eb)
+	printGreeting(sb)
+}
+
+func printGreeting(b bot) {
+	fmt.Print(b.getGreeting())
+}
+
+func (eb englishBot) getGreeting() string {
+	// very custom logic for generating english greeting
+	return "Hi There!"
+}
+
+func (eb spanishBot) getGreeting() string {
+	// very custom logic for generating english greeting
+	return "Hi There!"
+}
+```
+
+Interfaces are not generic types
+
+Interfaces are implicit
+
+Interfaces are a contract to help us manage types
+
+interfaces are tough
